@@ -9,11 +9,11 @@
 
 
 ## 使用指南
-1. 修改`conf.ini`配置，每一行配置类似`caps_a = keyFunc_moveLeft`
+1. 修改`conf.ini`配置，S每一行配置类似`caps_a = keyFunc_moveLeft`
 - `caps_a`指代的是`caps+a`按键键位
 - `keyFunc_moveLeft`指的该键位下所产生的功能。
-2. 启动
-
+2. 双击 `haloCaps.exe`，桌面出现绿色`H`图标，如下图所示
+![image-1](https://kauizhaotan.oss-accelerate.aliyuncs.com/blog/image-1.png?x-oss-process=style/water)
 
 ### 目前支持的键位
 - `caps_[qwerasdf]`
