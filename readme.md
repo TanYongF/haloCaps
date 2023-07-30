@@ -5,18 +5,20 @@
 
 
 
-是一款轻量级键盘映射软件，通过将**不太常用**但是**地理位置绝佳**的`Caps`与其他键组合，来达到不同的功能。例如移动光标等等操作。
+是一款轻量级全局热键设置软件，主要功能是通过将**不太常用**但是**地理位置绝佳**的`CapsLock`与**其他键**组合，来达到不同的功能。例如移动光标、删除等基本操作，大大增加码字效率，缩短手指移动距离！
 
 
 ## 使用指南
-1. 修改`conf.ini`配置，每一行配置类似`caps_a = keyFunc_moveLeft`
-- `caps_a`指代的是`caps+a`按键键位
-- `keyFunc_moveLeft`指的该键位下所产生的功能。
+1. 下载[Releases](https://github.com/TanYongF/haloCaps/releases)最新版本，解压到任意路径
+2. 修改`conf.ini`中的`[keys]`段配置，每一行配置类似`caps_a = keyFunc_moveLeft`
+- `caps_a`指代的是`CapsLock+A`按键键位
+- `keyFunc_moveLeft`指的该键位下所要产生的功能。
 2. 双击 `haloCaps.exe`，桌面出现绿色`H`图标，如下图所示
+  
 ![image-1](https://kauizhaotan.oss-accelerate.aliyuncs.com/blog/image-1.png?x-oss-process=style/water)
 
 ### 目前支持的键位
-- `caps_[qwerasdf]`
+- `caps_[qwerasdf]` (代表`CapsLock+Q/W/E/R/A/S/D/F`
 
 ### 目前支持的功能
 
