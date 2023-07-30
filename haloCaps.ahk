@@ -1,8 +1,27 @@
-﻿#Include "lib"
+﻿#SingleInstance force
+
+;管理员身份重启
+full_command_line := DllCall("GetCommandLine", "str")
+
+if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
+{
+    try
+    {
+        if A_IsCompiled
+            Run '*RunAs "' A_ScriptFullPath '" /restart'
+        else
+            Run '*RunAs "' A_AhkPath '" /restart "' A_ScriptFullPath '"'
+    }
+    ExitApp
+}
+
+
+#Include "lib"
 #Include libKeyFunctions.ahk
 #Include libFunctions.ahk
 #Include libKeyMap.ahk
-#SingleInstance force
+#Include libSettings.ahk
+
 #Warn
 SetStoreCapslockMode false
 ProcessSetPriority "High"
@@ -23,25 +42,29 @@ ProcessSetPriority "High"
 ;      msgbox, % v
 ;  }
 
+
 ;从conf.ini中读取键位对应的功能
-LoadKeyMapFromConf()
+; LoadKeyMapFromConf()
+
+
+;-------------------core function start------------------------
 global capsLockPressed := ""
 global capsLockPlusUsed := "" ;判断是否使用过capslock plus功能，如果使用过那么就不会执行capslock默认操作
 
-CapsLock::{
+CapsLock:: {
     global
-    capsLockPressed := true ;caps键被按下                  
+    capsLockPressed := true ;caps键被按下
     capsLockPlusUsed := false
     SetTimer(setCapsLockPlusUsed, -500) ;如果按下caps键500ms还未松开，默认此次操作为空操作
 
     KeyWait "CapsLock" ;阻塞等待Caps被按下或者松开
-    
+
     capsLockPressed := false ;关闭capslock功能
-    if !capsLockPlusUsed{
+    if !capsLockPlusUsed {
         keyFunc_toggleCapsLock()
     }
     capsLockPlusUsed := true
-    setCapsLockPlusUsed(){
+    setCapsLockPlusUsed() {
         global
         capsLockPlusUsed := true
     }
@@ -56,7 +79,7 @@ r::
 a::
 d::
 s::
-f::{
+f:: {
     global
     runFunc(keymap["caps_" . A_ThisHotkey])
     capsLockPlusUsed := true

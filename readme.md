@@ -9,7 +9,7 @@
 
 
 ## 使用指南
-1. 修改`conf.ini`配置，S每一行配置类似`caps_a = keyFunc_moveLeft`
+1. 修改`conf.ini`配置，每一行配置类似`caps_a = keyFunc_moveLeft`
 - `caps_a`指代的是`caps+a`按键键位
 - `keyFunc_moveLeft`指的该键位下所产生的功能。
 2. 双击 `haloCaps.exe`，桌面出现绿色`H`图标，如下图所示
@@ -28,4 +28,14 @@
 | `keyFunc_moveRight` | 右移光标 |
 | `keyFunc_delete`| 回退按键 |
 | `keyFunc_enter` | 回车按键 | 
+
+
+## 其他配置
+
+### 1. 自启动
+如果想要自启动只需要修改`conf.ini`下的`autostart`值即可
+```ini
+autostart = true/false 
+```
+
 
